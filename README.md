@@ -41,21 +41,7 @@ https://res.cloudinary.com/dmdqvhn3e/video/upload/v1773454831/Travel_AI_Chat_-_G
 ---
 
 # 🏗 System Architecture
-User Question
-      ↓
-Query Rewrite (LLM)
-      ↓
-Embedding Model (MiniLM)
-      ↓
-Vector Search (Qdrant)
-      ↓
-Reranking Model
-      ↓
-Context Builder
-      ↓
-LLM (Gemini)
-      ↓
-Final Answer
+User Question -> Query Rewrite (LLM) -> Embedding Model (MiniLM) -> Vector Search (Qdrant) -> Reranking Model -> Context Builder -> LLM (Gemini) -> Final Answer
 
 ---
 
