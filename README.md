@@ -1,114 +1,112 @@
 # 🤖 AI Travel Assistant (RAG Chatbot)
 
-![Node](https://img.shields.io/badge/Node.js-18-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
-![Qdrant](https://img.shields.io/badge/Qdrant-VectorDB-blue)
-![AI](https://img.shields.io/badge/AI-RAG-orange)
+An **AI-powered travel assistant chatbot** that helps users find hotels and flights using natural language.
 
-An **AI-powered travel assistant chatbot** that helps users find hotels and flights using natural language.  
-The system is built using a **Retrieval-Augmented Generation (RAG)** architecture that combines **LLMs, vector search, and reranking models** to generate accurate and contextual travel recommendations.
+The system is built using a **Retrieval-Augmented Generation (RAG)** architecture that combines:
 
-This project demonstrates how to build a **modern AI system with semantic search, vector databases, and conversational memory**.
+- LLMs (Google Gemini)
+- Vector search (Qdrant)
+- Embedding models
+- Transformer reranking
+- Conversational memory
+
+The chatbot retrieves relevant travel information from a vector database and generates contextual responses for users.
+
+
+---
+
+# 🎥 Demo
+
+https://res.cloudinary.com/dmdqvhn3e/video/upload/v1773454831/Travel_AI_Chat_-_Google_Chrome_2026-03-13_19-24-03_l87aat.mp4
 
 ---
 
 # 🚀 Features
 
-## 💬 Conversational Travel Assistant
+- 💬 **Conversational AI Assistant**  
+  Users can ask travel questions in natural language.
 
-Users can ask travel-related questions naturally:
-Bạn hãy đề xuất khách sạn ở Hồ Chí Minh quận 1 rẻ nhất mà tiện ích tốt.
-Có chuyến bay từ Hà Nội đến Đà Nẵng không?
+- 🧠 **RAG Pipeline**  
+  Uses Retrieval-Augmented Generation to answer questions using real system data.
 
-The AI assistant understands the query, retrieves relevant travel data, and generates a contextual response.
+- 🔍 **Semantic Search**  
+  Hotel and flight data are stored as embeddings and searched using **Qdrant vector database**.
 
----
+- 🧠 **Reranking Model**  
+  Transformer-based reranking improves the relevance of retrieved results.
 
-## 🧠 Retrieval-Augmented Generation (RAG)
-
-The system implements a **full RAG pipeline** to ensure answers are grounded in real system data.
-User Question ->  Query Rewrite ->  Embedding ->  Vector Search (Qdrant) ->  Reranking Model ->  Context Construction ->  LLM Response
-
-This architecture reduces hallucinations and improves answer relevance.
-
----
-
-## 🔍 Semantic Search
-
-Travel data (hotels and flights) are converted into **vector embeddings** and stored in a **vector database**.
-
-This enables:
-
-- Natural language search
-- Semantic similarity matching
-- Intelligent travel recommendations
-
----
-
-## 🧠 Reranking Model
-
-After retrieving results from the vector database, a **transformer-based reranking model** reorders the results to improve relevance before sending them to the LLM.
-
-This significantly improves response quality.
-
----
-
-## 💬 Multi-turn Conversation Memory
-
-The chatbot supports **multi-turn conversations** by storing chat history.
-
-Example:
-User: Khách sạn rẻ ở Quận 1?
-User: Có lựa chọn nào khác không?
-
-The system understands the second question using conversation context.
+- 💬 **Conversation Memory**  
+  Supports multi-turn conversations by using chat history.
 
 ---
 
 # 🏗 System Architecture
-
-The system follows a **modular AI architecture**:
-Frontend (Chat UI)
-↓
-Chat API (Express)
-↓
-Chat Memory
-↓
-Query Rewrite
-↓
-Embedding Model
-↓
+User Question
+      ↓
+Query Rewrite (LLM)
+      ↓
+Embedding Model (MiniLM)
+      ↓
 Vector Search (Qdrant)
-↓
+      ↓
 Reranking Model
-↓
+      ↓
 Context Builder
-↓
-LLM Response
-
-Each module is separated to make the system **scalable and maintainable**.
+      ↓
+LLM (Gemini)
+      ↓
+Final Answer
 
 ---
 
 # ⚙️ Tech Stack
 
-## Backend
+### Backend
 - Node.js
 - Express.js
 - MongoDB
+- REST API
 
-## AI / Machine Learning
+### AI / Machine Learning
 - Retrieval-Augmented Generation (RAG)
-- Embedding Models
 - Transformers.js
-- Reranking Model
+- MiniLM Embedding Model
+- MiniLM Reranking Model
+- Google Gemini LLM
 
-## Vector Database
+### Vector Database
 - Qdrant
 
-## Other Technologies
-- REST API
-- Semantic Search
+### Other
+- Docker
 - Conversational Memory
+- Semantic Search
 
 ---
+
+# ⚙️ Installation
+
+1️⃣ Clone repository
+git clone https://github.com/your-username/travel-ai-chatbot.git
+cd travel-ai-chatbot
+2️⃣ Install dependencies
+npm install
+3️⃣ Setup .env
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/travel
+GEMINI_API_KEY=.................
+4️⃣ Run Qdrant Vector Database (Docker)
+- Open cmd
+  docker run -p 6333:6333 qdrant/qdrant
+5️⃣ Prepare Vector Database
+- Create Vector Collection
+  node server/vector/createCollection.js
+- Build EmBedding for Hotel and Flight
+  node server/vector/buildEmbeddings.js
+6️⃣ Run Server
+node server/server.js
+7️⃣ Run Basic frontend
+index/html
+
+# 👨‍🎓 Author
+HuynhHop
