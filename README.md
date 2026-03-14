@@ -84,26 +84,91 @@ Final Answer
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation
 
-###1️⃣ Clone repository
-- git clone https://github.com/your-username/travel-ai-chatbot.git
-- cd travel-ai-chatbot
-###2️⃣ Install dependencies
-- npm install
-###3️⃣ Setup .env
-- PORT=3001
-- MONGODB_URI=mongodb://localhost:27017/travel
-- GEMINI_API_KEY=.................
-###4️⃣ Run Qdrant Vector Database (Docker)
-- docker run -p 6333:6333 qdrant/qdrant
-###5️⃣ Prepare Vector Database
-- node server/vector/createCollection.js
-- node server/vector/buildEmbeddings.js
-###6️⃣ Run Server
-- node server/server.js
-###7️⃣ Run Basic frontend
-- index/html
+### 1️⃣ Clone repository
+
+```bash
+git clone https://github.com/your-username/travel-ai-chatbot.git
+cd travel-ai-chatbot
+```
+
+---
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3️⃣ Setup environment variables
+
+Create a `.env` file in the root directory:
+
+```env
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/travel
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+---
+
+### 4️⃣ Run Qdrant Vector Database (Docker)
+
+Start Qdrant using Docker:
+
+```bash
+docker run -p 6333:6333 qdrant/qdrant
+```
+
+Qdrant will run at:
+
+```
+http://localhost:6333
+```
+
+---
+
+### 5️⃣ Prepare Vector Database
+
+Create vector collection:
+
+```bash
+node server/vector/createCollection.js
+```
+
+Build embeddings for hotel and flight data:
+
+```bash
+node server/vector/buildEmbeddings.js
+```
+
+---
+
+### 6️⃣ Run Backend Server
+
+```bash
+node server/server.js
+```
+
+Server will start at:
+
+```
+http://localhost:3001
+```
+
+---
+
+### 7️⃣ Run Basic Frontend
+
+Open the file below in your browser:
+
+```
+index.html
+```
+
 
 # 👨‍🎓 Author
 HuynhHop
